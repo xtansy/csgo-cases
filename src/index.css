@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 4%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 8%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 8%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 263 100% 66%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 10% 12%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 10% 12%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 263 100% 66%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 10% 15%;
+    --input: 240 10% 15%;
+    --ring: 263 100% 66%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Градиентный фон */
+.gradient-bg {
+  background: linear-gradient(135deg, 
+    hsl(240 10% 4%) 0%, 
+    hsl(263 30% 8%) 50%, 
+    hsl(240 10% 4%) 100%);
+}
+
+/* Эффект свечения */
+.glow {
+  box-shadow: 0 0 20px rgba(136, 71, 255, 0.3),
+              0 0 40px rgba(136, 71, 255, 0.1);
+}
+
+.glow-primary {
+  box-shadow: 0 0 20px rgba(136, 71, 255, 0.4),
+              0 0 40px rgba(136, 71, 255, 0.2);
+}
+
+/* Анимация пульсации */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(136, 71, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(136, 71, 255, 0.5),
+                0 0 60px rgba(136, 71, 255, 0.3);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
